@@ -10,7 +10,7 @@ export function renderForm(onSubmit) {
     form.addEventListener("submit", (event) => {
         event.preventDefault(); // stop the default page reload
         const cityName = form.querySelector("#city_name").value.trim();
-
+        
         if(cityName) onSubmit(cityName);
     });
     return form;

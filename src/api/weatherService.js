@@ -13,6 +13,7 @@ export async function getWeatherIn(cityName) {
         throw new Error(`Weather lookup failed (${response.status}) ${detail}`);
     }
     const weatherData = await response.json();
+    console.log(weatherData);
     return mapToModel(weatherData);
 }
 
@@ -28,8 +29,8 @@ function mapToModel(raw) {
         },
         forecast: days.slice(0, 3).map(d => ({
             date:   d?.datetime ?? "",
-            min:    Number(d?.tempmin ?? NaN),
-            max:    Number(d?.tempmax ?? NaN),
+            low:    Number(d?.tempmin ?? NaN),
+            high:    Number(d?.tempmax ?? NaN),
             icon:   d?.icon ?? ""
         }))
     };

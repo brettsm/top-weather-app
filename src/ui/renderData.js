@@ -30,10 +30,23 @@ export function displayWeather(model) {
     currentConditions.textContent = capitalize(model.current.description);
     currentCard.appendChild(currentConditions);
 
+    const currentTempRangeDiv = document.createElement("div");
+    currentTempRangeDiv.className = "current temp-range";
+
     const currentLowTemp = document.createElement("p");
     currentLowTemp.className = "current low-temp";
-    currentLowTemp.textContent = model.forecast[0].low;
-    currentCard.appendChild(currentLowTemp);
+    currentLowTemp.textContent = "LOW: " + model.forecast[0].low;
+    currentTempRangeDiv.appendChild(currentLowTemp);
+
+    const currentHighTemp = document.createElement("p");
+    currentHighTemp.className = "current high-temp";
+    currentHighTemp.textContent = "HIGH: " + model.forecast[0].high;
+    currentTempRangeDiv.appendChild(currentHighTemp);
+
+    currentCard.appendChild(currentTempRangeDiv);
+
+    // TODO: Use assets/vendor/weathericons/4th Set to have an img "weatherIcon" that changes based on the conditions
+
 
 
     // const temp = document.createElement("p");

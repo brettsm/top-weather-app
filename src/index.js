@@ -1,15 +1,12 @@
 import "./styles/styles.css";
 import { renderForm } from "./ui/renderForm";
 import { getWeatherIn } from "./api/weatherService";
-import { displayWeather } from "./ui/renderData";
+import { displayCurrentWeather } from "./ui/renderCurrent";
 const apiKey = process.env.API_KEY;
 
-const app = document.getElementById("app");
-
-const cityForm = renderForm(onSubmit);
-app.appendChild(cityForm);
+renderForm(onSubmit);
 
 async function onSubmit(cityName) {
     const dataModel = await getWeatherIn(cityName);
-    await displayWeather(dataModel);
+    await displayCurrentWeather(dataModel);
 }

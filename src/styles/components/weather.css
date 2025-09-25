@@ -1,5 +1,22 @@
 
-.weather-card {
-    border: 1px solid black;
-    border-radius: 10px;
+.temp{
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    font-size: 2rem;
+}
+
+.label {
+    color: var(--color-muted); 
+    font-weight: 500;
+}
+
+.forecast li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: .5rem;
+}
+
+#current .high-temp, #current .low-temp {
+    color: var(--color-muted);
+    font-size: .75rem;
 }

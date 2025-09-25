@@ -2,74 +2,54 @@ import "../styles/components/weather.css";
 
 const app = document.getElementById("app");
 
+export async function displayCurrentWeather(model) {
 
-// weatherDisplay
-//  -> currentCard
-//  -> forecastDiv
-//      --> day1 forecast | day2 forecast | day3 forecast
-
-export async function displayWeather(model) {
-    console.log(model);
-    const div = document.createElement("div");
-    div.id = "weather-display";
 
     clearDisplay();
 
-    const currentCard = document.createElement("div");
-    currentCard.className = "weather-card current";
+    const currentCard = document.getElementById("current");
 
-    const locationHeader = document.createElement("h3");
+    const locationHeader = document.createElement("span");
     locationHeader.className = "current location";
     locationHeader.textContent = capitalize(model.location);
     currentCard.appendChild(locationHeader);
 
-    const currentTemp = document.createElement("h2");
+    const currentTemp = document.createElement("span");
     currentTemp.className = "current temp";
     currentTemp.textContent = model.current.temp;
     currentCard.appendChild(currentTemp);
     
-    const currentConditions = document.createElement("h3");
-    currentConditions.className = "current conditions";
+    const currentConditions = document.createElement("span");
+    currentConditions.className = "current conditions label";
     currentConditions.textContent = capitalize(model.current.description);
     currentCard.appendChild(currentConditions);
 
+    const weatherIcon = document.createElement("img");
+    weatherIcon.src = await iconUrl(model.current.icon);
+    currentCard.appendChild(weatherIcon);
+
+    
     const currentTempRangeDiv = document.createElement("div");
     currentTempRangeDiv.className = "current temp-range";
 
-    const currentLowTemp = document.createElement("p");
+    const currentLowTemp = document.createElement("span");
     currentLowTemp.className = "current low-temp";
     currentLowTemp.textContent = "LOW: " + model.forecast[0].low;
     currentTempRangeDiv.appendChild(currentLowTemp);
 
-    const currentHighTemp = document.createElement("p");
+    const currentHighTemp = document.createElement("span");
     currentHighTemp.className = "current high-temp";
     currentHighTemp.textContent = "HIGH: " + model.forecast[0].high;
     currentTempRangeDiv.appendChild(currentHighTemp);
 
     currentCard.appendChild(currentTempRangeDiv);
 
-    const weatherIcon = document.createElement("img");
-    weatherIcon.src = await iconUrl(model.current.icon);
-
-    currentCard.appendChild(weatherIcon);
-    
-    // TODO: Use assets/vendor/weathericons/4th Set to have an img "weatherIcon" that changes based on the conditions
-
-
-
-    // const temp = document.createElement("p");
-    // temp.textContent = `Current temperature in ${model.location}: ${isNaN(model.current.temp) ? "N/A" : model.current.temp + "°F"}`;
-    // div.appendChild(temp);
-
-    div.appendChild(currentCard);
-
-    app.appendChild(div);
 }
 
 function clearDisplay() {
-    const existing = document.getElementById("weather-display");
+    const existing = document.getElementById("current");
     if (existing) {
-        existing.remove();
+        existing.innerHTML = ``;
     }
 }
 

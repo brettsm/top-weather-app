@@ -1,6 +1,7 @@
 import "../styles/components/form.css";
 
 export function renderForm(onSubmit) {
+    const header = document.getElementById("header");
     const form = document.createElement("form");
     form.id = "weather-form";
     form.innerHTML = `
@@ -15,5 +16,6 @@ export function renderForm(onSubmit) {
         
         if(cityName) onSubmit(cityName);
     });
-    return form;
+    
+    header.appendChild(form);
 }

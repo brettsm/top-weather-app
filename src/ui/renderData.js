@@ -1,3 +1,5 @@
+import "../styles/components/weather.css";
+
 const app = document.getElementById("app");
 
 

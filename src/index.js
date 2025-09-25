@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./styles/styles.css";
 import { renderForm } from "./ui/renderForm";
 import { getWeatherIn } from "./api/weatherService";
 import { displayWeather } from "./ui/renderData";

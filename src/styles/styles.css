@@ -1,0 +1,8 @@
+body {
+    background-color: white;
+}
+
+.current .weather-card {
+    border: 1px solid lightgray;
+    border-radius: 45px;
+}

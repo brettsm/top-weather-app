@@ -1,3 +1,5 @@
+import "../styles/components/form.css";
+
 export function renderForm(onSubmit) {
     const form = document.createElement("form");
     form.id = "weather-form";

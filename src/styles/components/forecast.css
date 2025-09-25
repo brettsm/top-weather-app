@@ -13,6 +13,5 @@
   background: #f8fafc;
 }
 .forecast .day { color: #64748b; font-weight: 600; }
-.forecast .icon { width: 28px; height: 28px; }
 .forecast .hi { font-weight: 700; }
 .forecast .lo { color: #64748b; }

@@ -25,6 +25,8 @@ export async function displayCurrentWeather(model) {
     currentCard.appendChild(currentConditions);
 
     const weatherIcon = document.createElement("img");
+    weatherIcon.className = "icon";
+    weatherIcon.alt = model.current.description;
     weatherIcon.src = await iconUrl(model.current.icon);
     currentCard.appendChild(weatherIcon);
 

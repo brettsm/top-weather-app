@@ -1,0 +1,47 @@
+.search form { 
+    display: grid; 
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: .6rem; 
+}
+.search input[type="text"] { 
+    padding: .6rem .8rem; 
+    border: 1px solid #e5e7eb; 
+    border-radius: .6rem;
+    outline: none;
+}
+.search input[type="text"]:focus {
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+}
+.search button { 
+    padding: .6rem 1rem; 
+    border: 0; 
+    border-radius: .6rem; 
+    background:#0ea5e9; 
+    color:#fff; 
+    font-weight:600; 
+    cursor:pointer; 
+}
+.search button:hover {
+    filter: brightness(.95);
+}
+
+@media (max-width: 520px) {
+    .search form {
+        grid-template-columns: 1fr;
+    }
+    .search label {
+        margin-bottom: .25rem;
+    }
+    .search button{
+        width: 100%;
+    }
+}
+
+
+/* 2) Current weather */
+.current { text-align: center; padding: .5rem 0 1rem; }
+.current .city { font-size: clamp(1.2rem, 2vw, 1.6rem); margin: 0 0 .25rem; }
+.current .temp { font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; letter-spacing: .01em; }
+.current .label { color: #64748b; font-weight: 500; }

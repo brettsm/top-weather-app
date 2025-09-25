@@ -1,11 +1,12 @@
 const app = document.getElementById("app");
 
+
 // weatherDisplay
 //  -> currentCard
 //  -> forecastDiv
 //      --> day1 forecast | day2 forecast | day3 forecast
 
-export function displayWeather(model) {
+export async function displayWeather(model) {
     console.log(model);
     const div = document.createElement("div");
     div.id = "weather-display";
@@ -45,6 +46,11 @@ export function displayWeather(model) {
 
     currentCard.appendChild(currentTempRangeDiv);
 
+    const weatherIcon = document.createElement("img");
+    weatherIcon.src = await iconUrl(model.current.icon);
+
+    currentCard.appendChild(weatherIcon);
+    
     // TODO: Use assets/vendor/weathericons/4th Set to have an img "weatherIcon" that changes based on the conditions
 
 
@@ -70,4 +76,11 @@ function capitalize(words) {
                 .split(' ')
                 .map(word => word[0].toUpperCase() + word.slice(1))
                 .join(' ');
+}
+
+async function iconUrl(iconName) {
+    const mod = await import(
+        `../assets/vendor/weathericons/4th-set-color/${iconName}.png`
+    );
+    return mod.default;
 }

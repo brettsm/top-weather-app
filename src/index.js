@@ -11,5 +11,5 @@ app.appendChild(cityForm);
 
 async function onSubmit(cityName) {
     const dataModel = await getWeatherIn(cityName);
-    displayWeather(dataModel);
+    await displayWeather(dataModel);
 }

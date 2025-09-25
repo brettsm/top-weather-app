@@ -1,3 +1,5 @@
+import "../styles/components/forecast.css";
+
 function dayName(isoDate) {
     try {
         return new Date(isoDate + "T00:00").toLocaleDateString(undefined, { weekday: "short" });
